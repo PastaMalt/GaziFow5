@@ -5,21 +5,22 @@ using UnityEngine;
 public class AnimatorManager : MonoBehaviour
 {
     private Animator animator;
+    public bool fireBool;
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator.SetTrigger("Holding");
+            animator.SetBool("Fire", false);
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0)) 
         {
-           animator.SetTrigger("Fire");
+            animator.SetBool("Fire", true);
         }
+           
     }
 }
